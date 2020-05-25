@@ -1,9 +1,4 @@
-const person = { name: "John", address: {
-    city: "LA",
-    country: "USA"
-}};
-const updated = {...person, name: "thai", address: {
-    ...person.address,
-    city: "New York"
-}}
-console.log(person);
+const numbers = [1, 2, 3];
+const index = numbers.indexOf(2);
+const added = [...numbers.slice(0, index), 4, ...numbers.slice(index)];
+console.log(added)
