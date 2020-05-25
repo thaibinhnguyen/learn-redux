@@ -1,12 +1,9 @@
-import { compose, pipe } from 'lodash/fp';
-
-let input = "  JavaScript  ";
-let output = "<div>" + input.trim() + "</div>";
-
-const trim = str => str.trim();
-const wrap = type => str => `<${type}>${str}</${type}>`;
-const toLowerCase = str => str.toLowerCase();
-
-const transform = pipe(trim, toLowerCase, wrap('div'));
-console.log(transform(input));
-// const result = wrapInDiv(toLowerCase(trim(input)));
+const person = { name: "John", address: {
+    city: "LA",
+    country: "USA"
+}};
+const updated = {...person, name: "thai", address: {
+    ...person.address,
+    city: "New York"
+}}
+console.log(person);
