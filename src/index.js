@@ -1,4 +1,11 @@
-const numbers = [1, 2, 3];
-const index = numbers.indexOf(2);
-const added = [...numbers.slice(0, index), 4, ...numbers.slice(index)];
-console.log(added)
+import store from './store';
+import {bugAdded, bugRemoved, bugResolved} from './actions'
+const unsubscribe = store.subscribe(() => {
+    console.log("store changed", store.getState());
+})
+
+store.dispatch(bugAdded('Bug1'));
+store.dispatch(bugResolved(1));
+unsubscribe();
+store.dispatch(bugRemoved(1))
+console.log(store.getState());
